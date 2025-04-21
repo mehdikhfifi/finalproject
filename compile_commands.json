@@ -1,0 +1,254 @@
+[
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -w -o CMakeFiles/glew.dir/src/glew.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/glew.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/glew.c",
+  "output": "CGL/deps/glew/CMakeFiles/glew.dir/src/glew.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -w -o CMakeFiles/glew.dir/src/glewinfo.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/glewinfo.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/glewinfo.c",
+  "output": "CGL/deps/glew/CMakeFiles/glew.dir/src/glewinfo.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -w -o CMakeFiles/glew.dir/src/visualinfo.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/visualinfo.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/src/visualinfo.c",
+  "output": "CGL/deps/glew/CMakeFiles/glew.dir/src/visualinfo.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/context.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/context.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/context.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/context.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/init.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/init.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/init.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/init.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/input.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/input.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/input.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/input.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/monitor.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/monitor.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/monitor.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/monitor.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/window.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/window.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/window.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/window.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/cocoa_init.m.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_init.m",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_init.m",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/cocoa_monitor.m.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_monitor.m",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_monitor.m",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/cocoa_window.m.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_window.m",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/cocoa_window.m",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/iokit_joystick.m.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/iokit_joystick.m",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/iokit_joystick.m",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/iokit_joystick.m.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/mach_time.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/mach_time.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/mach_time.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/mach_time.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/posix_tls.c.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/posix_tls.c",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/posix_tls.c",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/posix_tls.c.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DGLEW_STATIC -D_GLFW_USE_CONFIG_H -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fPIC   -Wall -w -o CMakeFiles/glfw.dir/nsgl_context.m.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/nsgl_context.m",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glfw/src/nsgl_context.m",
+  "output": "CGL/deps/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/vector2D.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector2D.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector2D.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/vector2D.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/vector3D.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector3D.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector3D.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/vector3D.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/vector4D.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector4D.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/vector4D.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/vector4D.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/matrix3x3.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/matrix3x3.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/matrix3x3.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/matrix3x3.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/matrix4x4.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/matrix4x4.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/matrix4x4.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/matrix4x4.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/quaternion.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/quaternion.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/quaternion.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/quaternion.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/complex.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/complex.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/complex.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/complex.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/color.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/color.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/color.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/color.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/osdtext.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/osdtext.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/osdtext.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/osdtext.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/osdfont.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/osdfont.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/osdfont.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/osdfont.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/viewer.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/viewer.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/viewer.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/viewer.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/base64.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/base64.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/base64.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/base64.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DGLEW_STATIC -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Users/mehdikhfifi/Desktop/finalproj/CGL/deps/glew/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -I/Users/mehdikhfifi/Desktop/finalproj/CGL/src -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-constant-conversion -o CMakeFiles/CGL.dir/tinyxml2.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/CGL/src/tinyxml2.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/CGL/src/tinyxml2.cpp",
+  "output": "CGL/src/CMakeFiles/CGL.dir/tinyxml2.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/bezierPatch.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/bezierPatch.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/bezierPatch.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/bezierPatch.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/bezierCurve.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/bezierCurve.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/bezierCurve.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/bezierCurve.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/scene.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/scene.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/scene.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/scene.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/camera.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/camera.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/camera.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/camera.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/light.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/light.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/light.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/light.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/mesh.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/mesh.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/mesh.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/mesh.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/material.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/material.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/material.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/material.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/texture.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/texture.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/texture.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/texture.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/collada.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/collada.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/collada.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/collada.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/halfEdgeMesh.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/halfEdgeMesh.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/halfEdgeMesh.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/student_code.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/student_code.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/student_code.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/student_code.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/meshEdit.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/meshEdit.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/meshEdit.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/meshEdit.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/main.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/main.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/main.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/mehdikhfifi/Desktop/finalproj/src",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/mehdikhfifi/Desktop/finalproj/CGL/include -I/Library/Frameworks/Mono.framework/Headers -I/opt/homebrew/include/freetype2 -F/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/System/Library/Frameworks  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -Wno-deprecated-declarations -Wno-c++11-extensions -o CMakeFiles/meshedit.dir/png.cpp.o -c /Users/mehdikhfifi/Desktop/finalproj/src/png.cpp",
+  "file": "/Users/mehdikhfifi/Desktop/finalproj/src/png.cpp",
+  "output": "src/CMakeFiles/meshedit.dir/png.cpp.o"
+}
+]
