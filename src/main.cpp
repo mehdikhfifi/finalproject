@@ -123,6 +123,14 @@ int main( int argc, char** argv ) {
 
   // init viewer
   viewer.init();
+
+  // load both meshes
+  if (loadFile(collada_viewer, argv[1]) < 0 ||
+      loadFile(collada_viewer, argv[2]) < 0) {
+    msg("Failed loading one of the scene files. Check your paths!");
+    exit(0);
+  }
+
   viewer.start();
 
   return 0;

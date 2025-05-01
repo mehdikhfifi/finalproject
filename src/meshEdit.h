@@ -186,6 +186,10 @@ namespace CGL {
          std::vector<Vertex*> half_edge_vertices;
 
       private:
+
+  // After your existing fields:
+ 
+
          // These thresholds define when a mouse click on given
          // triangle corresponds to selection of a vertex, edge,
          // or face; they are expressed as percent relative to
@@ -217,22 +221,30 @@ class MeshEdit : public Renderer {
   virtual void scroll_event( float offset_x, float offset_y );
   virtual void mouse_button_event( int button, int event );
 
+  void updatePhysics(float dt);
+
   void load( Scene* scene );
 
  private:
+ std::vector<std::vector<size_t> > morphPolygons; // face‐lists remapped to source indices
+ std::vector<int>                    morphAssign,
+                                     morphInvAssign; // forward & inverse match
+                                     std::vector<Vector3D> velocities;
+float stiffness = 50.0f;   // spring constant k
+float damping   =  5.0f;   // damping coefficient c
+float mass      =  1.0f; 
 
-
- bool   morphing      = false;         
-  float  morphTime     = 0.0f;           
-  float  morphDuration = 2.0f;
-  std::vector<Vector3D> sourcePositions; 
-  std::vector<Vector3D> targetPositions; 
-//   std::vector<Vector3D> targetRaw;
-//   std::vector<Vector3D> sourceRaw; 
-
+   // ---- morphing between meshNodes[0] and meshNodes[1]
+   bool   morphing      = false;          ///< are we currently interpolating?
+   float  morphTime     = 0.0f;           ///< current time [0 .. morphDuration]
+   float  morphDuration = 2.0f;           ///< how many seconds for a full morph
+   std::vector<Vector3D> sourcePositions; ///< original vertex positions
+   std::vector<Vector3D> targetPositions; ///< target vertex positions
+   
  
-  void applyMorph(float t);
-
+   /// apply linear interpolation at t in [0,1] to meshNodes[0]
+   void applyMorph(float t);
+ 
   void initializeStyle( void );
 
   // --  Private Variables.

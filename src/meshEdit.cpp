@@ -1,19 +1,19 @@
 #include "meshEdit.h"
 #include "shaderUtils.h"
 #include "GL/glew.h"
-#include <algorithm>
-#define PI 3.14159265
 
+#define PI 3.14159265
+#include <limits>
 #include <cmath>
 
 namespace CGL {
 
   void MeshEdit::init()
   {
-    up = Z_UP;
-    morphing = false;
-    morphTime = 0.0f;
-    morphDuration = 2.0f;
+    morphing      = false;
+    morphTime     = 0.0f;
+    morphDuration = 2.0f;  // two seconds
+  
     smoothShading = false;
     shadingMode = false;
     shaderProgID = loadShaders("shader/vert", "shader/frag");
@@ -83,6 +83,46 @@ namespace CGL {
     initializeStyle();
   }
 
+  
+  static std::vector<int> solveAssignment(const std::vector<std::vector<double>>& cost) {
+    int n = cost.size();
+    std::vector<double> u(n+1), v(n+1), minv(n+1);
+    std::vector<int> p(n+1), way(n+1);
+    for(int i=1; i<=n; ++i) {
+      p[0] = i;
+      int j0 = 0;
+      std::fill(minv.begin(), minv.end(), std::numeric_limits<double>::infinity());
+      std::vector<char> used(n+1,false);
+      do {
+        used[j0] = true;
+        int i0 = p[j0],  j1 = 0;
+        double delta = std::numeric_limits<double>::infinity();
+        for(int j=1; j<=n; ++j) {
+          if (!used[j]) {
+            double cur = cost[i0-1][j-1] - u[i0] - v[j];
+            if (cur < minv[j]) { minv[j] = cur; way[j] = j0; }
+            if (minv[j] < delta) { delta = minv[j]; j1 = j; }
+          }
+        }
+        for(int j=0; j<=n; ++j) {
+          if (used[j]) { u[p[j]] += delta; v[j] -= delta; }
+          else          { minv[j] -= delta; }
+        }
+        j0 = j1;
+      } while (p[j0] != 0);
+      do {
+        int j1 = way[j0];
+        p[j0] = p[j1];
+        j0 = j1;
+      } while (j0);
+    }
+    std::vector<int> assignment(n);
+    for(int j=1; j<=n; ++j)
+      if (p[j]>0)
+        assignment[p[j]-1] = j-1;
+    return assignment;
+}
+
   void MeshEdit::initializeStyle( void )
   {
     // Colors.
@@ -114,9 +154,9 @@ namespace CGL {
 
   void MeshEdit::render()
   {
-     // advance morph if active
+   // advance morph if active
   if (morphing) {
-      morphTime += 1.0f / 60.0f;               // assume ~60 fps
+      morphTime += 1.0f / 60.0f;               // assume ~60 fps
       if (morphTime >= morphDuration) {
         morphTime  = morphDuration;
         morphing   = false;
@@ -195,13 +235,10 @@ namespace CGL {
     glUseProgram(0);
   }
 
-  void MeshEdit::draw_meshes()
-  {
-    if (!meshNodes.empty()){
+  void MeshEdit::draw_meshes() {
+    // always draw just the first mesh, which we’re morphing
+    if (!meshNodes.empty())
       renderMesh(meshNodes[0].mesh);
-    }
-
-    // Execute all of the OpenGL commands.
     glFlush();
   }
 
@@ -239,6 +276,13 @@ namespace CGL {
       glUniform1i(glGetUniformLocation(shaderProgID, "outputID"), key-'0');
     }
     switch( key ) {
+
+      case 'm': case 'M':
+      if (meshNodes.size() >= 2) {
+        morphing  = true;
+        morphTime = 0.0f;
+      }
+      break;
 
       // reset view transformation
       case ' ':
@@ -280,13 +324,6 @@ namespace CGL {
         break;
       default:
         break;
-      case 'm': case 'M':
-        if (meshNodes.size() >= 2){
-          morphing = true;
-          morphTime = 0.0f;
-        }
-        break;
-        
     }
   }
 
@@ -406,6 +443,27 @@ namespace CGL {
     }
   }
 
+  void MeshEdit::updatePhysics(float dt) {
+    size_t idx = 0;
+    for (auto v = meshNodes[0].mesh.verticesBegin(); 
+              v != meshNodes[0].mesh.verticesEnd(); 
+              ++v, ++idx) {
+      Vector3D x    = v->position;
+      Vector3D xT   = targetPositions[idx];
+      Vector3D vVel = velocities[idx];
+  
+      // spring–damper force toward target
+      Vector3D Fspring = -stiffness * (x - xT);
+      Vector3D Fdamp   = -damping   * vVel;
+      Vector3D a       = (Fspring + Fdamp) / mass;
+  
+      // integrate (semi‐implicit Euler)
+      velocities[idx]  = vVel + a * dt;
+      v->position      = x    + velocities[idx] * dt;
+    }
+  }
+  
+
   void MeshEdit::load( Scene* scene )
   {
     cout << "MeshEdit: loading scene:\n";
@@ -449,21 +507,36 @@ namespace CGL {
 
     }
 
+    int N = sourcePositions.size();
+    velocities.assign(N, Vector3D(0,0,0));
+
+    // after building meshNodes
     if (meshNodes.size() >= 2) {
       sourcePositions.clear();
       targetPositions.clear();
-
       for (auto v = meshNodes[0].mesh.verticesBegin();
                 v != meshNodes[0].mesh.verticesEnd(); ++v)
-                sourcePositions.push_back(v->position);
+        sourcePositions.push_back(v->position);
       for (auto v = meshNodes[1].mesh.verticesBegin();
                 v != meshNodes[1].mesh.verticesEnd(); ++v)
         targetPositions.push_back(v->position);
+    
+      // Build cost matrix: Euclidean distance between every source i and target j
+      int N = sourcePositions.size();
+      std::vector<std::vector<double> > cost(N, std::vector<double>(N));
+      for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
+          cost[i][j] = (sourcePositions[i] - targetPositions[j]).norm();
+    
+      // Solve assignment and permute targetPositions accordingly
+      std::vector<int> assign = solveAssignment(cost);
+      std::vector<Vector3D> orderedTarget(N);
+      for (int i = 0; i < N; ++i)
+        orderedTarget[i] = targetPositions[assign[i]];
+      targetPositions.swap(orderedTarget);
     }
 
-  
-
-
+    cerr << "Done loading scene. Mesh Ready for Editing!" << endl;
   }
 
   void MeshEdit::init_camera(Camera& camera)
@@ -1592,16 +1665,30 @@ namespace CGL {
     selectedFeature.invalidate();
     hoveredFeature.invalidate();
   }
-} // namespace CMU462
+  void MeshEdit::applyMorph(float t) {
+    // clamp
+    if      (t < 0)   t = 0;
+    else if (t > 1)   t = 1;
 
-void MeshEdit::applyMorph(float t) {
+    // float s = t*t*(3 - 2*t);
 
-  if (t < 0) t = 0; if (t > 1) t = 1;
+    // or cosine easing: C∞‑smooth
+    // float s = 1.3f*(1 - cos(PI * t));
 
-  size_t idx = 0;
-  for (auto v = meshNodes[0].mesh.verticesBegin();
-            v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx) {
-    v->position = sourcePositions[idx] * (1.0f - t)
-                + targetPositions[idx] * t;
+    float s = t;
+  
+    size_t idx = 0;
+    // 3.1: interpolate geometry on meshNodes[0]
+    for (auto v = meshNodes[0].mesh.verticesBegin();
+              v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx)
+      v->position = sourcePositions[idx] * (1.0f - s)
+            + targetPositions[idx] * s;
+
+  
+    // 3.2: once we’ve reached the end, rebuild connectivity
+    if (t >= 1.0f) {
+      meshNodes[0].mesh.build(morphPolygons, targetPositions);
+      morphing = false;  // stop further morph steps
+    }
   }
 }
