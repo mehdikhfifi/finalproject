@@ -2,7 +2,7 @@ uniform int outputID;
 uniform vec3 eyePos;
 varying vec3 normal;
 varying vec3 vertex;
-
+// uniform samplerCube u_texture_cubemap;
 #define PI 3.1415926
 
 vec3 shadeDiffuseFromEye();
@@ -26,9 +26,19 @@ void main()
     if(outputID == 2)
     {
         // Do something interesting here for extra credit.
-        // gl_FragColor = vec4(???, 1.0);
+        gl_FragColor = vec4(normal, 1.0);
         // return;
     }
+    // if(outputID == 3)
+    // {
+    //     vec3 outgoing_direction = normalize(eyePos - vertex);
+
+    //     // apply the reflection formula
+    //     vec3 incoming_direction = outgoing_direction - 2 * dot(normal, outgoing_direction) * normal;
+
+    //     gl_FragColor = texture(u_texture_cubemap, incoming_direction);
+    //     return;
+    // }
 }
 
 vec3 shadeDiffuseFromEye()

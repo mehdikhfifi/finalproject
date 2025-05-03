@@ -77,7 +77,7 @@ int loadFile(MeshEdit* collada_viewer, const char* path) {
 int main( int argc, char** argv ) {
 
   // sanity check for argument passing
-  if (argc != 3) {
+  if (argc != 2 && argc != 3) {
     msg("you need to pass the command as: ./meshedit meshA meshB"); 
     exit(0);
   }
@@ -125,8 +125,11 @@ int main( int argc, char** argv ) {
   viewer.init();
 
   // load both meshes
-  if (loadFile(collada_viewer, argv[1]) < 0 ||
-      loadFile(collada_viewer, argv[2]) < 0) {
+  if (loadFile(collada_viewer, argv[1]) < 0) {
+    msg("Failed loading one of the scene files. Check your paths!");
+    exit(0);
+  }
+  if (argc > 2 && loadFile(collada_viewer, argv[2]) < 0) {
     msg("Failed loading one of the scene files. Check your paths!");
     exit(0);
   }

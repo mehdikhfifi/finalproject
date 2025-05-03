@@ -272,8 +272,128 @@ namespace CGL
     return v4;
   }
 
+  VertexIter HalfedgeMesh::collapseVertex(VertexIter v0) {
+    
+    if (v0->degree() == 3) {
+      HalfedgeIter h0 = v0->halfedge();
+      HalfedgeIter h1 = h0->twin();
+      HalfedgeIter h2 = h1->next();
+      HalfedgeIter h3 = h2->twin();
+      HalfedgeIter h4 = h3->next();
+      HalfedgeIter h5 = h4->twin();
+      HalfedgeIter h6 = h2->next();
+      HalfedgeIter h7 = h4->next();
+      HalfedgeIter h8 = h0->next();
+    
+      FaceIter f0 = h0->face();
+      FaceIter f1 = h1->face();
+      FaceIter f2 = h3->face();
+    
+      VertexIter v1 = h1->vertex();
+      VertexIter v2 = h3->vertex();
+      VertexIter v3 = h5->vertex();
+    
+      EdgeIter e0 = h0->edge();
+      EdgeIter e1 = h2->edge();
+      EdgeIter e2 = h4->edge();
+      EdgeIter e3 = h6->edge();
+      EdgeIter e4 = h7->edge();
 
+      h6->setNeighbors(h8, h6->twin(), v2, e3, f0);
+      h7->setNeighbors(h6, h7->twin(), v3, e4, f0);
+      h8->setNeighbors(h7, h8->twin(), v1, h8->edge(), f0);
 
+      f0->halfedge() = h8;
+    
+      v1->halfedge() = h8;
+      v2->halfedge() = h6;
+      v3->halfedge() = h7;
+
+      deleteHalfedge(h0);
+      deleteHalfedge(h1);
+      deleteHalfedge(h2);
+      deleteHalfedge(h3);
+      deleteHalfedge(h4);
+      deleteHalfedge(h5);
+      deleteEdge(e0);
+      deleteEdge(e1);
+      deleteEdge(e2);
+      deleteVertex(v0);
+      deleteFace(f1);
+      deleteFace(f2);
+
+      return v2;
+    }
+
+    HalfedgeIter h0 = v0->halfedge();
+    HalfedgeIter h1 = h0->twin();
+    HalfedgeIter h2 = h1->next();
+    HalfedgeIter h3 = h2->twin();
+    HalfedgeIter h4 = h3->next();
+    HalfedgeIter h5 = h4->twin();
+    HalfedgeIter h6 = h2->next();
+    HalfedgeIter h7 = h4->next();
+    HalfedgeIter h8 = h0->next();
+    HalfedgeIter h9 = h8->next();
+    HalfedgeIter h10 = h5->next();
+    HalfedgeIter h11 = h10->next();
+    
+    FaceIter f0 = h0->face();
+    FaceIter f1 = h1->face();
+    FaceIter f2 = h3->face();
+    FaceIter f3 = h5->face();
+    
+    VertexIter v1 = h1->vertex();
+    VertexIter v2 = h3->vertex();
+    VertexIter v3 = h5->vertex();
+    
+    EdgeIter e0 = h0->edge();
+    EdgeIter e1 = h2->edge();
+    EdgeIter e2 = h4->edge();
+    EdgeIter e3 = h6->edge();
+    EdgeIter e4 = h7->edge();
+
+    vector<HalfedgeIter> h_list;
+    HalfedgeIter h_temp = h9->twin();
+    while (h_temp != h10) {
+      h_list.push_back(h_temp);
+      h_temp = h_temp->next()->next()->twin();
+    }
+
+    // setNeighbors(next, twin, vertex, edge, face)
+    h6->setNeighbors(h8, h6->twin(), v2, e3, f0);
+    h7->setNeighbors(h10, h7->twin(), v3, e4, f3);
+    h8->setNeighbors(h9, h8->twin(), v1, h8->edge(), f0);
+    h9->setNeighbors(h6, h9->twin(), h9->vertex(), h9->edge(), f0);
+    h10->setNeighbors(h11, h10->twin(), v2, h10->edge(), f3);
+    h11->setNeighbors(h7, h11->twin(), h11->vertex(), h11->edge(), f3);
+
+    f0->halfedge() = h8;
+    f3->halfedge() = h11;
+    
+    v1->halfedge() = h8;
+    v2->halfedge() = h6;
+    v3->halfedge() = h7;
+
+    for (HalfedgeIter h : h_list) {
+      h->vertex() = v2;
+    }
+
+    deleteHalfedge(h0);
+    deleteHalfedge(h1);
+    deleteHalfedge(h2);
+    deleteHalfedge(h3);
+    deleteHalfedge(h4);
+    deleteHalfedge(h5);
+    deleteEdge(e0);
+    deleteEdge(e1);
+    deleteEdge(e2);
+    deleteVertex(v0);
+    deleteFace(f1);
+    deleteFace(f2);
+
+    return v2;
+  }
 
   
   void MeshResampler::upsample( HalfedgeMesh& mesh )

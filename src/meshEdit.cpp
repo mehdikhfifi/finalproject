@@ -10,10 +10,6 @@ namespace CGL {
 
   void MeshEdit::init()
   {
-    morphing      = false;
-    morphTime     = 0.0f;
-    morphDuration = 2.0f;  // two seconds
-  
     smoothShading = false;
     shadingMode = false;
     shaderProgID = loadShaders("shader/vert", "shader/frag");
@@ -83,46 +79,6 @@ namespace CGL {
     initializeStyle();
   }
 
-  
-  static std::vector<int> solveAssignment(const std::vector<std::vector<double>>& cost) {
-    int n = cost.size();
-    std::vector<double> u(n+1), v(n+1), minv(n+1);
-    std::vector<int> p(n+1), way(n+1);
-    for(int i=1; i<=n; ++i) {
-      p[0] = i;
-      int j0 = 0;
-      std::fill(minv.begin(), minv.end(), std::numeric_limits<double>::infinity());
-      std::vector<char> used(n+1,false);
-      do {
-        used[j0] = true;
-        int i0 = p[j0],  j1 = 0;
-        double delta = std::numeric_limits<double>::infinity();
-        for(int j=1; j<=n; ++j) {
-          if (!used[j]) {
-            double cur = cost[i0-1][j-1] - u[i0] - v[j];
-            if (cur < minv[j]) { minv[j] = cur; way[j] = j0; }
-            if (minv[j] < delta) { delta = minv[j]; j1 = j; }
-          }
-        }
-        for(int j=0; j<=n; ++j) {
-          if (used[j]) { u[p[j]] += delta; v[j] -= delta; }
-          else          { minv[j] -= delta; }
-        }
-        j0 = j1;
-      } while (p[j0] != 0);
-      do {
-        int j1 = way[j0];
-        p[j0] = p[j1];
-        j0 = j1;
-      } while (j0);
-    }
-    std::vector<int> assignment(n);
-    for(int j=1; j<=n; ++j)
-      if (p[j]>0)
-        assignment[p[j]-1] = j-1;
-    return assignment;
-}
-
   void MeshEdit::initializeStyle( void )
   {
     // Colors.
@@ -162,6 +118,11 @@ namespace CGL {
         morphing   = false;
       }
       applyMorph(morphTime / morphDuration);
+    }
+    if (expanding) {
+      subdivide_mesh();
+      build_positions();
+      applyExpand();
     }
     update_camera();
     draw_meshes();
@@ -279,8 +240,18 @@ namespace CGL {
 
       case 'm': case 'M':
       if (meshNodes.size() >= 2) {
+        build_positions();
+        compute_mapping();
+
         morphing  = true;
         morphTime = 0.0f;
+      }
+      break;
+      case 'e': case 'E':
+      if (meshNodes.size() >= 2) {
+        subdivide_mesh();
+        build_positions();
+        expanding = true;
       }
       break;
 
@@ -305,6 +276,10 @@ namespace CGL {
       case 's':
       case 'S':
         splitSelectedEdge();
+        break;
+      case 'c':
+      case 'C':
+        collapseSelectedVertex();
         break;
       case 'n':
       case 'N':
@@ -507,37 +482,251 @@ namespace CGL {
 
     }
 
-    int N = sourcePositions.size();
-    velocities.assign(N, Vector3D(0,0,0));
-
-    // after building meshNodes
-    if (meshNodes.size() >= 2) {
-      sourcePositions.clear();
-      targetPositions.clear();
-      for (auto v = meshNodes[0].mesh.verticesBegin();
-                v != meshNodes[0].mesh.verticesEnd(); ++v)
-        sourcePositions.push_back(v->position);
-      for (auto v = meshNodes[1].mesh.verticesBegin();
-                v != meshNodes[1].mesh.verticesEnd(); ++v)
-        targetPositions.push_back(v->position);
-    
-      // Build cost matrix: Euclidean distance between every source i and target j
-      int N = sourcePositions.size();
-      std::vector<std::vector<double> > cost(N, std::vector<double>(N));
-      for (int i = 0; i < N; ++i)
-        for (int j = 0; j < N; ++j)
-          cost[i][j] = (sourcePositions[i] - targetPositions[j]).norm();
-    
-      // Solve assignment and permute targetPositions accordingly
-      std::vector<int> assign = solveAssignment(cost);
-      std::vector<Vector3D> orderedTarget(N);
-      for (int i = 0; i < N; ++i)
-        orderedTarget[i] = targetPositions[assign[i]];
-      targetPositions.swap(orderedTarget);
-    }
+    // int N = sourcePositions.size();
+    // velocities.assign(N, Vector3D(0,0,0));
 
     cerr << "Done loading scene. Mesh Ready for Editing!" << endl;
   }
+
+  static std::vector<int> solveAssignment(const std::vector<std::vector<double>>& cost) {
+    int n = cost.size();
+    std::vector<double> u(n+1), v(n+1), minv(n+1);
+    std::vector<int> p(n+1), way(n+1);
+    for(int i=1; i<=n; ++i) {
+      p[0] = i;
+      int j0 = 0;
+      std::fill(minv.begin(), minv.end(), std::numeric_limits<double>::infinity());
+      std::vector<char> used(n+1,false);
+      do {
+        used[j0] = true;
+        int i0 = p[j0],  j1 = 0;
+        double delta = std::numeric_limits<double>::infinity();
+        for(int j=1; j<=n; ++j) {
+          if (!used[j]) {
+            double cur = cost[i0-1][j-1] - u[i0] - v[j];
+            if (cur < minv[j]) { minv[j] = cur; way[j] = j0; }
+            if (minv[j] < delta) { delta = minv[j]; j1 = j; }
+          }
+        }
+        for(int j=0; j<=n; ++j) {
+          if (used[j]) { u[p[j]] += delta; v[j] -= delta; }
+          else          { minv[j] -= delta; }
+        }
+        j0 = j1;
+      } while (p[j0] != 0);
+      do {
+        int j1 = way[j0];
+        p[j0] = p[j1];
+        j0 = j1;
+      } while (j0);
+    }
+    std::vector<int> assignment(n);
+    for(int j=1; j<=n; ++j)
+      if (p[j]>0)
+        assignment[p[j]-1] = j-1;
+    return assignment;
+  }
+
+  void MeshEdit::build_positions() {
+    sourcePositions.clear();
+    targetPositions.clear();
+
+    for (auto v = meshNodes[0].mesh.verticesBegin();
+              v != meshNodes[0].mesh.verticesEnd(); ++v)
+      sourcePositions.push_back(v->position);
+    for (auto v = meshNodes[1].mesh.verticesBegin();
+                v != meshNodes[1].mesh.verticesEnd(); ++v)
+      targetPositions.push_back(v->position);
+
+    Vector3D centroid1, centroid2;
+    meshNodes[0].getCentroid(centroid1);
+    meshNodes[1].getCentroid(centroid2);
+    
+    size_t idx = 0;
+    for (auto v = meshNodes[0].mesh.verticesBegin();
+                v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx)
+      v->position = sourcePositions[idx] = (sourcePositions[idx] - centroid1);
+      
+    idx = 0;
+    for (auto v = meshNodes[1].mesh.verticesBegin();
+                v != meshNodes[1].mesh.verticesEnd(); ++v, ++idx)
+      v->position = targetPositions[idx] = (targetPositions[idx] - centroid2);
+  }
+
+  void MeshEdit::compute_mapping() {
+
+    // Build cost matrix: Euclidean distance between every source i and target j
+    int M = sourcePositions.size();
+    int N = targetPositions.size();
+    std::vector<std::vector<double>> cost(M, std::vector<double>(M, 1e9)); // square matrix MxM
+
+    for (int i = 0; i < M; ++i) {
+      for (int j = 0; j < N; ++j) {
+        cost[i][j] = (sourcePositions[i] - targetPositions[j]).norm();
+      }
+    }
+    
+    // Solve assignment and permute targetPositions accordingly
+    std::vector<int> assign = solveAssignment(cost);
+    std::vector<Vector3D> orderedTarget(M); // M source positions
+    sourceMatched.resize(M);
+
+    for (int i = 0; i < M; ++i) {
+      sourceMatched[i] = assign[i] < N;
+      if (assign[i] < N)
+        orderedTarget[i] = targetPositions[assign[i]];
+      else
+        orderedTarget[i] = projectPointOntoMesh(sourcePositions[i], meshNodes[1].mesh);
+    }
+    targetPositions.swap(orderedTarget);
+  }
+
+  void MeshEdit::remove_unmatched() {
+    HalfedgeMesh& mesh = meshNodes[0].mesh;
+    size_t totalVertices = sourceMatched.size();
+    size_t maxToCollapse = totalVertices / 2;
+  
+    std::vector<bool> matched(sourceMatched); // make copy for safety
+  
+    size_t collapsed = 0;
+    while (collapsed < maxToCollapse) {
+      // Step 1: Recompute candidate list with scores
+      struct ScoredVertex {
+        VertexIter v;
+        double score;
+        size_t idx;
+        bool operator<(const ScoredVertex& other) const {
+          return score < other.score;
+        }
+      };
+  
+      std::vector<ScoredVertex> candidates;
+      size_t idx = 0;
+      for (VertexIter v = mesh.verticesBegin(); v != mesh.verticesEnd(); ++v, ++idx) {
+        if (!matched[idx] && !v->isBoundary()) {
+          int degree = 0;
+          double totalLength = 0.0;
+  
+          HalfedgeIter h = v->halfedge();
+          HalfedgeIter hStart = h;
+          do {
+            ++degree;
+            totalLength += (v->position - h->twin()->vertex()->position).norm();
+            h = h->twin()->next();
+          } while (h != hStart);
+  
+          if (degree < 3) continue;
+
+          double avgLength = (degree > 0) ? totalLength / degree : 1e9;
+          double score = avgLength;
+  
+          candidates.push_back({v, score, idx});
+        }
+      }
+  
+      if (candidates.empty()) break;
+  
+      // Step 2: Sort and try to collapse the best one
+      std::sort(candidates.begin(), candidates.end());
+      bool collapsedOne = false;
+  
+      for (const auto& sv : candidates) {
+        if (!sv.v->isBoundary()) {
+          mesh.collapseVertex(sv.v);  // assume this is safe and implemented
+          matched[sv.idx] = true; // mark as removed
+          collapsed++;
+          collapsedOne = true;
+          break;  // break and recompute new scores
+        }
+      }
+  
+      if (!collapsedOne) break; // no valid vertex to collapse
+    }
+  }
+  
+
+  Vector3D MeshEdit::closestPointOnTriangle(Vector3D& p,
+    Vector3D& a,
+    Vector3D& b,
+    Vector3D& c) {
+    // Compute vectors
+    Vector3D ab = b - a;
+    Vector3D ac = c - a;
+    Vector3D ap = p - a;
+
+    double d1 = dot(ab, ap), d2 = dot(ac, ap);
+    if (d1 <= 0 && d2 <= 0) return a;
+
+    Vector3D bp = p - b;
+    double d3 = dot(ab, bp), d4 = dot(ac, bp);
+    if (d3 >= 0 && d4 <= d3) return b;
+
+    Vector3D cp = p - c;
+    double d5 = dot(ab, cp), d6 = dot(ac, cp);
+    if (d6 >= 0 && d5 <= d6) return c;
+
+    double vc = d1*d4 - d3*d2;
+    if (vc <= 0 && d1 >= 0 && d3 <= 0) {
+      double v = d1 / (d1 - d3);
+      return a + v * ab;
+    }
+
+    double vb = d5*d2 - d1*d6;
+    if (vb <= 0 && d2 >= 0 && d6 <= 0) {
+      double v = d2 / (d2 - d6);
+      return a + v * ac;
+    }
+
+    double va = d3*d6 - d5*d4;
+    if (va <= 0 && (d4 - d3) >= 0 && (d5 - d6) >= 0) {
+      double v = (d4 - d3) / ((d4 - d3) + (d5 - d6));
+      return b + v * (c - b);
+    }
+
+    // Inside face region
+    double denom = 1.0 / (va + vb + vc);
+    double v = vb * denom;
+    double w = vc * denom;
+    return a + ab * v + ac * w;
+  }
+
+  Vector3D MeshEdit::projectPointOntoMesh(Vector3D& p, HalfedgeMesh& mesh) {
+    double minDistSq = 1e9;
+    Vector3D closest;
+
+    for (FaceCIter f = mesh.facesBegin(); f != mesh.facesEnd(); ++f) {
+      HalfedgeCIter h = f->halfedge();
+      Vector3D a = h->vertex()->position;
+      Vector3D b = h->next()->vertex()->position;
+      Vector3D c = h->next()->next()->vertex()->position;
+
+      Vector3D q = closestPointOnTriangle(p, a, b, c);
+      double distSq = (q - p).norm2();
+
+      if (distSq < minDistSq) {
+        minDistSq = distSq;
+        closest = q;
+      }
+    }
+
+    return closest;
+  }
+
+  void MeshEdit::subdivide_mesh() {
+    size_t target_ct = 0;
+    for (VertexIter v = meshNodes[1].mesh.verticesBegin(); v != meshNodes[1].mesh.verticesEnd(); ++v)
+      target_ct++;
+
+    while (true) {
+      size_t source_ct = 0;
+      for (VertexIter v = meshNodes[0].mesh.verticesBegin(); v != meshNodes[0].mesh.verticesEnd(); ++v)
+        source_ct++;
+
+      if (source_ct >= 2 * target_ct) break;
+      resampler.upsample( meshNodes[0].mesh );
+    }
+  }
+    
 
   void MeshEdit::init_camera(Camera& camera)
   {
@@ -949,7 +1138,9 @@ namespace CGL {
     float w = -1.0;
 
     // Iterate through all meshes.
-    int num_meshes = meshNodes.size();
+    // int num_meshes = meshNodes.size();
+    int num_meshes = 1;
+
     for(int mesh_index = 0; mesh_index < num_meshes; mesh_index++)
     {
       MeshNode& node = meshNodes[mesh_index];
@@ -1665,6 +1856,40 @@ namespace CGL {
     selectedFeature.invalidate();
     hoveredFeature.invalidate();
   }
+
+  void MeshEdit::collapseSelectedVertex( void ) {
+    Vertex* v = NULL;
+    if (selectedFeature.isValid()) {
+      v = selectedFeature.element->getVertex();
+    }
+
+    if( v == NULL ) { cerr << "Must select a vertex." << endl; return; }
+    selectedFeature.node->mesh.collapseVertex( v->halfedge()->vertex() );
+
+    // Since the mesh may have changed, the selected and
+    // hovered features may no longer point to valid elements.
+    selectedFeature.invalidate();
+    hoveredFeature.invalidate();
+  }
+
+  void MeshEdit::applyExpand() {
+    size_t idx = 0;
+
+    for (auto v = meshNodes[0].mesh.verticesBegin();
+              v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx)
+      v->position = sourcePositions[idx] = sourcePositions[idx] * 1.05f;
+
+    for (size_t i = 0; i < sourcePositions.size(); ++i) {
+      for (size_t j = 0; j < targetPositions.size(); ++j) {
+        if (sourcePositions[i].norm() <= targetPositions[j].norm()) {
+          return;
+        }
+      }
+    }
+    
+    expanding = false;
+  }
+
   void MeshEdit::applyMorph(float t) {
     // clamp
     if      (t < 0)   t = 0;
@@ -1680,14 +1905,16 @@ namespace CGL {
     size_t idx = 0;
     // 3.1: interpolate geometry on meshNodes[0]
     for (auto v = meshNodes[0].mesh.verticesBegin();
-              v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx)
+              v != meshNodes[0].mesh.verticesEnd(); ++v, ++idx) {
+      if (!sourceMatched[idx]) {
+        targetPositions[idx] = projectPointOntoMesh(sourcePositions[idx], meshNodes[1].mesh);
+      }
       v->position = sourcePositions[idx] * (1.0f - s)
             + targetPositions[idx] * s;
+    }
 
-  
     // 3.2: once we’ve reached the end, rebuild connectivity
     if (t >= 1.0f) {
-      meshNodes[0].mesh.build(morphPolygons, targetPositions);
       morphing = false;  // stop further morph steps
     }
   }

@@ -237,13 +237,25 @@ float mass      =  1.0f;
    // ---- morphing between meshNodes[0] and meshNodes[1]
    bool   morphing      = false;          ///< are we currently interpolating?
    float  morphTime     = 0.0f;           ///< current time [0 .. morphDuration]
-   float  morphDuration = 2.0f;           ///< how many seconds for a full morph
+   float  morphDuration = 1.0f;           ///< how many seconds for a full morph
    std::vector<Vector3D> sourcePositions; ///< original vertex positions
    std::vector<Vector3D> targetPositions; ///< target vertex positions
+   std::vector<bool>     sourceMatched;
+   bool expanding       = false;
    
  
-   /// apply linear interpolation at t in [0,1] to meshNodes[0]
+   /// new functions
+   void subdivide_mesh();
+   void build_positions();
+   void compute_mapping();
+   void remove_unmatched();
+   Vector3D closestPointOnTriangle(Vector3D& p,
+    Vector3D& a,
+    Vector3D& b,
+    Vector3D& c);
+   Vector3D projectPointOntoMesh(Vector3D& p, HalfedgeMesh& mesh);
    void applyMorph(float t);
+   void applyExpand();
  
   void initializeStyle( void );
 
@@ -387,6 +399,8 @@ float mass      =  1.0f;
   // If a halfedge is selected, advances to the next or twin halfedge.
   void selectNextHalfedge( void );
   void selectTwinHalfedge( void );
+
+  void collapseSelectedVertex( void );
 
   // The canonical resampler used to perform operations on meshes.
   MeshResampler resampler;
